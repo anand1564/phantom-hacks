@@ -1,20 +1,19 @@
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls } from "@react-three/drei";
 
+const Moon = () => {
+  return (
+    <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
+      <mesh position={[0, 0, 0]} rotation={[0, 0, 0]}>
+        <sphereGeometry args={[1, 32, 32]} />
+        <meshStandardMaterial color="gray" transparent />
+      </mesh>
 
-import {useRef} from 'react'
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 5, 5]} intensity={1} />
+      <OrbitControls />
+    </Canvas>
+  );
+};
 
-const sphere = () => {
-    const sphere = useRef()
-    return (
-        <mesh ref={sphere}>
-            <sphereGeometry args={[1, 32, 32]} />
-            <meshStandardMaterial color="hotpink" />
-        </mesh>
-    )
-}
-const moon = () =>{
-    return(
-        <group>
-            <sphere args={[1, 32, 32]} position={[0, 0, 0]} material-color="hotpink"/>
-        </group>
-    )
-}
+export default Moon;

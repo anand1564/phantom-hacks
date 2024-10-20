@@ -3,17 +3,18 @@ import { Skull, Menu, X, Ghost, Bookmark, Home } from 'lucide-react'
 import MovingGhost from './ghost'
 import PlaySound from './PlaySound'
 
-const NavItem = ({ Icon, text }) => (
-  <a
-    href="#"
-    className="flex items-center px-4 py-2 text-gray-300 hover:bg-purple-900 hover:text-orange-500 transition-colors duration-200"
+const NavItem = ({ Icon, text, onClick }) => (
+  <div
+    onClick={onClick}
+    className="flex items-center px-4 py-2 text-gray-300 hover:bg-purple-900 hover:text-orange-500 transition-colors duration-200 cursor-pointer"
   >
     <Icon className="w-5 h-5 mr-2" />
     <span>{text}</span>
-  </a>
-)
+  </div>
+);
 
-export default function SpookyNavbar() {
+
+export default function SpookyNavbar({handleScroll,aboutRef,storiesRef}){
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -27,15 +28,12 @@ export default function SpookyNavbar() {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
                 <NavItem Icon={Home} text="Home" />
-                <NavItem Icon={Ghost} text="Haunted Houses" />
-                <NavItem Icon={Bookmark} text="Scary Stories" />
+                <NavItem Icon={Ghost} text="Significance" onClick={()=>handleScroll(aboutRef)}/>
+                <NavItem Icon={Bookmark} text="Scary Stories" onClick={()=>handleScroll(storiesRef)}/>
               </div>
             </div>
           </div>
           <div className="hidden md:block">
-            {/* <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 transform hover:scale-105">
-              <PlaySound/>
-            </button> */}
             <PlaySound />
           </div>
           <div className="-mr-2 flex md:hidden">
@@ -54,13 +52,11 @@ export default function SpookyNavbar() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             <NavItem Icon={Home} text="Home" />
-            <NavItem Icon={Ghost} text="Haunted Houses" />
+            <NavItem Icon={Ghost} onClick={()=>handleScroll(aboutRef)} text="Significance" />
             <NavItem Icon={Bookmark} text="Scary Stories" />
           </div>
           <div className="pt-4 pb-3 border-t border-gray-700">
-            <button className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 transform hover:scale-105">
-              Book a Scare
-            </button>
+            <PlaySound />
           </div>
         </div>
       )}

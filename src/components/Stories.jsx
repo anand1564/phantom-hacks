@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect,forwardRef } from 'react';
 import { motion } from 'framer-motion';
 
 const storyParts = [
@@ -8,7 +8,7 @@ const storyParts = [
   "As you opened the door, a chilling wind howled through the passage, and the laughter grew louder. You found yourself in a room filled with flickering candles and an ancient book on a pedestal. The book's pages turned on their own, revealing a spell that could either free the trapped souls or doom you forever. With trembling hands, you faced the choice that would determine your fate."
 ];
 
-const AnimatedStorySection = ({ scrolled }) => {
+const AnimatedStorySection = forwardRef(({scrolled}, ref) => { 
   const [currentPart, setCurrentPart] = useState(0);
   const [text, setText] = useState('');
 
@@ -33,22 +33,22 @@ const AnimatedStorySection = ({ scrolled }) => {
   };
 
   return (
-    <motion.div 
+    <motion.div ref={ref}
       className={`bg-black p-8 ${scrolled ? 'opacity-100' : 'opacity-0'}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: scrolled ? 1 : 0 }}
       transition={{ duration: 0.5 }}
     >
       <div className="flex flex-col md:flex-row justify-around items-center">
-        <img src="/pumpkins.jpg" alt='pumpkin' />
+        <img src="/spookyphoto.jpg" alt='spooky photo' className='photo bg-yellow-300' style={{}}/>
         <motion.div 
           className='flex flex-col items-center rounded-lg border-solid border-2 border-orange-600 p-5 max-w-md'
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.5 }}
         >
-          <h2 className='text-2xl text-orange-600 mb-4'>Spooky Stories</h2>
-          <p className="text-orange-400 text-center">{text}</p>
+          <h2 className='text-3xl text-white mb-4'>A spooky story</h2>
+          <p className="text-orange-400 text-center text-xl">{text}</p>
           <button 
             className='bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-4 rounded-full transition-colors duration-200 transform hover:scale-105 mt-4' 
             onClick={handleNext}
@@ -60,6 +60,6 @@ const AnimatedStorySection = ({ scrolled }) => {
       <hr className="border-orange-600 my-8" />
     </motion.div>
   );
-};
+});
 
 export default AnimatedStorySection;
