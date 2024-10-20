@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import MovingGhost from './components/ghost';
+import MovingGhost from './components/MovingGhost';
 import HeroWith3D from './components/Hero';
 import Footer from './components/Footer';
 import SpookyNavbar from './components/Navbar';
