@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { Skull, Menu, X, Ghost, Bookmark, Home } from 'lucide-react'
-import MovingGhost from './ghost'
 import PlaySound from './PlaySound'
 
 const NavItem = ({ Icon, text, onClick }) => (
