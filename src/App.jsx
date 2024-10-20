@@ -28,6 +28,7 @@ function App() {
 
   return (
     <div className="relative">
+      <MovingGhost />
       <SpookyNavbar />
       <HeroWith3D/>
       <AnimatedStorySection scrolled={scrolled} />

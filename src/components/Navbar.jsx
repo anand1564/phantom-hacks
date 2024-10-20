@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Skull, Menu, X, Ghost, Bookmark, Home } from 'lucide-react'
+import MovingGhost from './ghost'
+import PlaySound from './PlaySound'
 
 const NavItem = ({ Icon, text }) => (
   <a
@@ -31,9 +33,10 @@ export default function SpookyNavbar() {
             </div>
           </div>
           <div className="hidden md:block">
-            <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 transform hover:scale-105">
-              Book a Scare
-            </button>
+            {/* <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-200 transform hover:scale-105">
+              <PlaySound/>
+            </button> */}
+            <PlaySound />
           </div>
           <div className="-mr-2 flex md:hidden">
             <button

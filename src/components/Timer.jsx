@@ -25,6 +25,7 @@ const Timer = () => {
 
   return (
     <div className="timer flex flex-col items-center justify-center p-6">
+      <hr className="border-orange-600 my-4"/>
       <h2 className='text-4xl font-bold text-orange-500 mb-4'>Countdown to Halloween</h2>
       <div className="timer-container grid grid-cols-4 gap-6 text-center text-white bg-black bg-opacity-50 p-4 rounded-lg shadow-lg">
         <div className="time flex flex-col items-center">
