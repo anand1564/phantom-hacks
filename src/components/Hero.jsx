@@ -1,4 +1,4 @@
-import React, { useRef, useMemo,Suspense } from 'react'
+import React, { useRef, useMemo,Suspense, forwardRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { OrbitControls, useGLTF, Center, Html, PerspectiveCamera } from '@react-three/drei'
 import * as THREE from 'three'
@@ -36,7 +36,7 @@ function Moon() {
   )
 }
 
-export default function HeroWith3D() {
+const HeroWith3D=forwardRef(({handleScroll,storiesRef})=>{
   return (
     <div className="relative h-screen bg-gray-900">
       <Canvas shadows className="absolute inset-0">
@@ -56,10 +56,12 @@ export default function HeroWith3D() {
       <div className="absolute inset-0 flex flex-col items-center mt-20 text-gray-200">
         <h1 className="text-4xl font-bold mb-4 text-orange-500">Welcome to the Graveyard</h1>
         <p className="text-xl mb-8">Explore the eerie Halloween scene below</p>
-        <button className="bg-purple-700 text-white px-6 py-2 rounded-md hover:bg-purple-600 transition-colors">
+        <button className="bg-purple-700 text-white px-6 py-2 rounded-md hover:bg-purple-600 transition-colors"
+        onClick={()=>handleScroll(storiesRef)}>
           Enter If You Dare
         </button>
       </div>
     </div>
   )
-}
+});
+export default HeroWith3D

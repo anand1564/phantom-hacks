@@ -38,7 +38,7 @@ function App() {
     <div className="relative">
       <MovingGhost />
       <SpookyNavbar handleScroll={handleScroll} aboutRef={aboutRef} storiesRef={storiesRef}/>
-      <HeroWith3D/>
+      <HeroWith3D handleScroll={handleScroll} storiesRef={storiesRef}/>
       <AnimatedStorySection scrolled={scrolled} ref={storiesRef} />
       <About ref={aboutRef}/>
       <Timer />
