@@ -36,11 +36,11 @@ function Moon() {
   )
 }
 
-const HeroWith3D=forwardRef(({handleScroll,storiesRef})=>{
+const HeroWith3D=forwardRef((handleScroll,storiesRef)=>{
   return (
     <div className="relative h-screen bg-gray-900">
       <Canvas shadows className="absolute inset-0">
-        <PerspectiveCamera makeDefault position={[1, 2, 10]} fov={50} />
+        <PerspectiveCamera makeDefault position={[1, 2, 8]} fov={45} />
         <fog attach="fog" args={['#120101', 5, 20]} />
         <ambientLight intensity={0.1} />
         <spotLight position={[5, 5, 5]} angle={0.35} penumbra={1} intensity={1} color="#ff4500" />

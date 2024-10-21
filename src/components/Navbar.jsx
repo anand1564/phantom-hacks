@@ -13,7 +13,7 @@ const NavItem = ({ Icon, text, onClick }) => (
 );
 
 
-export default function SpookyNavbar({handleScroll,aboutRef,storiesRef}){
+export default function SpookyNavbar({handleScroll,aboutRef,storiesRef,quizRef}){
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -26,7 +26,7 @@ export default function SpookyNavbar({handleScroll,aboutRef,storiesRef}){
             </a>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <NavItem Icon={Home} text="Home" />
+                <NavItem Icon={Home} text="Quiz" onClick={()=>handleScroll(quizRef)}/>
                 <NavItem Icon={Ghost} text="Significance" onClick={()=>handleScroll(aboutRef)}/>
                 <NavItem Icon={Bookmark} text="Scary Stories" onClick={()=>handleScroll(storiesRef)}/>
               </div>
@@ -50,7 +50,7 @@ export default function SpookyNavbar({handleScroll,aboutRef,storiesRef}){
       {isOpen && (
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <NavItem Icon={Home} text="Home" />
+            <NavItem Icon={Quiz} text="Quiz" onClick={handleScroll(quizRef)}/>
             <NavItem Icon={Ghost} onClick={()=>handleScroll(aboutRef)} text="Significance" />
             <NavItem Icon={Bookmark} text="Scary Stories" />
           </div>

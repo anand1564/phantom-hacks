@@ -7,12 +7,15 @@ import SpookyNavbar from './components/Navbar';
 import AnimatedStorySection from './components/Stories';
 import Timer from './components/Timer';
 import About from './components/About';
+import Quiz from './components/Quiz';
 import { useRef } from 'react';
 function App() {
   const [scrolled, setScrolled] = useState(false);
 
   const storiesRef = useRef(null);
   const aboutRef= useRef(null);
+  const quizRef=useRef(null);
+
   const handleScroll=(ref)=>{
     if(ref && ref.current){
       ref.current.scrollIntoView({behavior:'smooth'});
@@ -37,9 +40,10 @@ function App() {
   return (
     <div className="relative">
       <MovingGhost />
-      <SpookyNavbar handleScroll={handleScroll} aboutRef={aboutRef} storiesRef={storiesRef}/>
+      <SpookyNavbar handleScroll={handleScroll} aboutRef={aboutRef} storiesRef={storiesRef} quizRef={quizRef}/>
       <HeroWith3D handleScroll={handleScroll} storiesRef={storiesRef}/>
       <AnimatedStorySection scrolled={scrolled} ref={storiesRef} />
+      <Quiz ref={quizRef}/>
       <About ref={aboutRef}/>
       <Timer />
       <Footer />
